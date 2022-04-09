@@ -10,8 +10,6 @@
 
 * It is hard to manually identify which other product images to use in the ad experimentation process.
 
-https://github.com/omartinez182/omartinez182-Ad-Deep-Learning-Based-Recommendations/raw/main/demos/Use_Case_Demo.mov
-
 Our approach consists of first using...
 
 ### Data Sourcing & Processing
