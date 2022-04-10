@@ -54,7 +54,7 @@ Here's an example of how to execute all of the scripts using Google [Colab](http
 ## Data Sourcing & Processing
 To prototype our idea, we scraped images from a retailer's website, and manually collected a sample of their ads that were targeted to us on Facebook. 
 
-We then used a pre-trained model (ResNet-18) `scripts/make_embeddings.py` to generate embeddings for the images that we used as our features. More details on the RecSys model can be found below under the modeling section.
+We then used a pre-trained model (ResNet-18) `scripts/make_embeddings.py` to generate embeddings for the images that we used as our features.
 
 ## Modeling Details
 
