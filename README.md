@@ -16,10 +16,6 @@ https://user-images.githubusercontent.com/63601717/162553790-b745db1a-b933-4dd0-
 
 In this case, the value proposition is to provide recommendations on the specific items in the inventory that match more closely (visually) the product in the ad the user clicked. These recommendations can be used to dynamically generate personalized category/landing pages. The relevance/match can have an impact on the conversion rate and therefore increase both revenues and decrease costs at the same time by having a higher relevance score (i.e. in search engine ads.)
 
-### Data Sourcing & Processing
-To prototype our idea, we scraped images from a retailer's website, and manually collected a sample of their ads that were targeted to us on Facebook. 
-
-We then used a pre-trained model (ResNet-18) `scripts/make_embeddings.py` to generate embeddings for the images that we used as our features. More details on the RecSys model can be found below under the modeling section.
 
 ## Getting Started
 
@@ -55,6 +51,10 @@ Notice that this web app is for demonstrations purposes only, so it won't downlo
 
 Here's an example of how to execute all of the scripts using Google [Colab](https://colab.research.google.com/).
 
+## Data Sourcing & Processing
+To prototype our idea, we scraped images from a retailer's website, and manually collected a sample of their ads that were targeted to us on Facebook. 
+
+We then used a pre-trained model (ResNet-18) `scripts/make_embeddings.py` to generate embeddings for the images that we used as our features. More details on the RecSys model can be found below under the modeling section.
 
 ## Modeling Details
 
