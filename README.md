@@ -75,7 +75,7 @@ However, it's important to clarify a few of the pros and cons of this method of 
 * Reflects the real preferences of only a few users (our team) and it's unlikely to follow the distribution of the data in the real world.
 
 
-To do this experiment we used the Cornac framework (citation below), if you'd like to reproduce this you can run the file
+To do this experiment we used the Cornac framework (citation below). If you'd like to reproduce this you can run the file
 
 ```
 $ python3 scripts/model_eval.py
@@ -86,8 +86,14 @@ The results of the experiment are saved as a log file under:
 
 Here's an example of how to execute the script using Google [Colab](https://colab.research.google.com/drive/1cv_4sS1to6i7bFC6Xg14DCKSMjJbrrA3?usp=sharing).
 
-## Citations
 
+## Further improvements
+
+* Leverage interaction data and auxiliary information about product attributes. (i.e. create embeddings for the product descriptions).
+
+* Test debiasing the visually-aware recommendations using causal inference, as proposed in the [CausalRec paper](https://arxiv.org/abs/2107.02390).
+
+## Citations
 ```
 @article{salah2020cornac,
   title={Cornac: A Comparative Framework for Multimodal Recommender Systems},
