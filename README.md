@@ -16,8 +16,6 @@ https://user-images.githubusercontent.com/63601717/162553790-b745db1a-b933-4dd0-
 
 In this case, the value proposition is to provide recommendations on the specific items in the inventory that match more closely (visually) the product in the ad the user clicked. These recommendations can be used to dynamically generate personalized category/landing pages. The relevance/match can have an impact on the conversion rate and therefore increase both revenues and decrease costs at the same time by having a higher relevance score (i.e. in search engine ads.)
 
-<img width="1274" alt="product end state" src="https://user-images.githubusercontent.com/63601717/162639537-66fdce48-b940-46e6-8f04-c4f6ed917d51.png">
-
 
 ## Getting Started
 
@@ -51,8 +49,6 @@ https://user-images.githubusercontent.com/63601717/162553930-690a71c7-346f-4433-
 Notice that this web app is for demonstrations purposes only, so it won't download any new data and it is currently only getting data from the test website we used. However, if you'd like to get recommendations for your specific images, you can just replace the images under ```data ``` -> ```raw``` -> ```images``` and run all of the previous scripts again to produce the personalized recommendations with your data.
 
 
-Here's an example of how to execute all of the scripts using Google [Colab](https://colab.research.google.com/).
-
 ## Data Sourcing & Processing
 To prototype our idea, we scraped images from a retailer's website, and manually collected a sample of their ads that were targeted to us on Facebook. 
 
@@ -60,18 +56,47 @@ We then used a pre-trained model (ResNet-18) `scripts/make_embeddings.py` to gen
 
 ## Modeling Details
 
-Our recommendation system model operates based on cosine similarity. The key idea is to first create vector embeddings for each image, and perform cosine similarity of each image with all others. We ended up having a large cosine similarity matrix, and we select the top-10 for each image, to generate its recommended images. We link up them back to the csv in the preprocessing step to find the URLs of recommended images.
+Our recommendation system model operates based on cosine similarity. The key idea is to first create vector embeddings for each image, and perform cosine similarity of each image with all others. We end up having a similarity matrix, and then we select the top-10 for each image, to generate its recommended images. We then link the recommended images back to the CSV in the preprocessing step to find the URLs of recommended images.
 
 ### Model Evaluation
 
-We did a quick comparison between AMR and Cosine Similarity. The AUC for AMR was 0.8920 and for Cosine Similarity was 0.9397, so we achieved a small bump for our model. What's more interesting is for the execution time: To do a complete training for the train set, cosine similarity takes 0.0612s while AMR takes 7.0172s. That provides some rationale for us to stick with the Cosine Similarity model.
+In order to gauge how well our model was performing, we manually simulated interaction data (i.e. clicking relevant images according to our preferences) and then leveraged that interaction data in conjunction with the visual features to produce visually-aware recommendations.
+
+We did a quick experiment comparing [AMR](https://ieeexplore.ieee.org/document/8618394) with the cosine similarity approach. The AUC for AMR was 0.8920 and for cosine similarity was 0.9397. However, what we found more interesting was the execution time: For the train set, cosine similarity took approximately 0.0612s while AMR took ~7.0172s. That provides some rationale for us to stick with the cosine similarity model at this point. 
+
+However, it's important to clarify a few of the pros and cons of this method of evaluation which we outline below:
+
+**Pros:**
+
+* Allows us to demo how the approach would work with real interaction data coming from a retailer's website, and validate the pipeline.​
+
+**Cons:**
+* Extremely small sample size.​
+* Reflects the real preferences of only a few users (our team) and it's unlikely to follow the distribution of the data in the real world.
 
 
+To do this experiment we used the Cornac framework (citation below), if you'd like to reproduce this you can run the file
+
+```
+$ python3 scripts/model_eval.py
+```
+The results of the experiment are saved as a log file under:
+
+```data``` -> ```output``` -> ```model_eval```.
+
+Here's an example of how to execute the script using Google [Colab](https://colab.research.google.com/drive/1cv_4sS1to6i7bFC6Xg14DCKSMjJbrrA3?usp=sharing).
 
 ## Citations
 
 ```
-@misc{
+@article{salah2020cornac,
+  title={Cornac: A Comparative Framework for Multimodal Recommender Systems},
+  author={Salah, Aghiles and Truong, Quoc-Tuan and Lauw, Hady W},
+  journal={Journal of Machine Learning Research},
+  volume={21},
+  number={95},
+  pages={1--5},
+  year={2020}
 }
 
 ```
