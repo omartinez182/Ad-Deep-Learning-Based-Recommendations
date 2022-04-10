@@ -58,11 +58,11 @@ Here's an example of how to execute all of the scripts using Google [Colab](http
 
 ## Modeling Details
 
-Consine details
+Our recommendation system model operates based on cosine similarity. The key idea is to first create vector embeddings for each image, and perform cosine similarity of each image with all others. We ended up having a large cosine similarity matrix, and we select the top-10 for each image, to generate its recommended images. We link up them back to the csv in the preprocessing step to find the URLs of recommended images.
 
 ### Model Evaluation
 
-Comparison between AMR and Cosine
+We did a quick comparison between AMR and Cosine Similarity. The AUC for AMR was 0.8920 and for Cosine Similarity was 0.9397, so we achieved a small bump for our model. What's more interesting is for the execution time: To do a complete training for the train set, cosine similarity takes 0.0612s while AMR takes 7.0172s. That provides some rationale for us to stick with the Cosine Similarity model.
 
 
 
