@@ -16,6 +16,7 @@ https://user-images.githubusercontent.com/63601717/162553790-b745db1a-b933-4dd0-
 
 In this case, the value proposition is to provide recommendations on the specific items in the inventory that match more closely (visually) the product in the ad the user clicked. These recommendations can be used to dynamically generate personalized category/landing pages. The relevance/match can have an impact on the conversion rate and therefore increase both revenues and decrease costs at the same time by having a higher relevance score (i.e. in search engine ads.)
 
+<img width="1304" alt="image" src="https://user-images.githubusercontent.com/63601717/162639452-2bfaf8ff-4285-4a79-a976-2ac934332cb7.png">
 
 ## Getting Started
 
