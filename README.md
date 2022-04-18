@@ -39,7 +39,7 @@ Once the embeddings have been generated, you can now produce the similarity matr
 $ python3 scripts/make_recommendations.py
 ```
 
-Finally, we've also produced a UI (prototype) in which you just have to provide a sitemap and a folder (zipped) with images from which you'd like to get recommendations, and then you'll be able to preview the recommendations for each "query image" and will also get access to a CSV file the all of the URLs for the commended images. You can run the demo app with:
+Finally, we've also produced a UI (prototype) in which you just have to provide a sitemap and a folder (zipped) with images from which you'd like to get recommendations, and then you'll be able to preview the recommendations for each "query image" and will also get access to a CSV file with all of the URLs for the recommended images. You can run the demo app with:
 
 ```
 $ streamlit run app.py
